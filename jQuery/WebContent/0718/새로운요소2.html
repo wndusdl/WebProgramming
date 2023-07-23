@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/jquery-3.7.0.min.js" type="text/javascript"></script>
+<script>
+//배열
+arr = ["망공1.png", "망공4.png", "망공5.png", "망곰2.png", "망곰3.png", 
+	"망공6.png", "망곰7.png"];
+	
+	$(document).ready(function() {
+		
+		$('#btn1').on('click', function() {
+			
+			//이미지의 길이만큼
+			rand = parseInt(Math.random()*arr.length);
+			//varr에 저장
+			varr = arr[rand];
+			
+			vimg = $('<img>', {
+				//이미지 파일 경로
+				"src" : `../images/${varr}`,
+				"alt" : varr,
+				"click" : function() {
+					$(this).css('border', '2px double skyblue');
+				}
+			})
+			//result1에 vimg추가
+			$(vimg).appendTo('#result1');
+		})
+	})
+</script>
+<style>
+	img {
+	width: 80px;
+	height: 80px;
+	margin: 10px;
+}
+</style>
+</head>
+<body>
+<h3>버튼을 클릭 시 이미지를 생성하여 result1에 추가한다.</h3>
+<input type="button" value="이미지추가" id="btn1">
+<br>
+<div class="ddres" id="result1"></div>
+<br>
+<hr color="red">
+</body>
+</html>
