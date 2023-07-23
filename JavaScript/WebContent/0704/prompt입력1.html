@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function() {
+		//입력
+		vinput = window.prompt("이름을 입력하세요.", "홍길동");
+		
+		//id가 result인 요소를 검색 및 출력
+		document.getElementById('result').innerHTML = vinput;
+	}
+	
+	function gugupro() {
+		//입력
+		vinput = window.prompt("구구단 수를 입력하세요.")
+		
+		//구구단 생성
+		res = `*****${vinput}단***** <br>`;
+		
+		for(i=1; i<=9; i++) {
+			res += `${vinput} * ${i} = ${vinput*i} <br>`;
+		}
+		
+		document.getElementById('result2').style.height = '350px';
+		document.getElementById('result2').innerHTML = res;
+	}
+	
+	function addpro() {
+		//첫번째 수 입력
+		num1 = parseInt(window.prompt("첫번째 수를 입력하세요."));
+		
+		//두번째 수 입력
+		num2 = parseInt(window.prompt("두번째 수를 입력하세요."));
+		
+		//더하기
+		res = num1 + num2;
+		
+		//출력내용 만들기
+		str = `첫번째 수 : ${num1} <br>`
+		str += `두번째 수 : ${num2} <br>`
+		str += `결과 : ${num1} + ${num2} = ${res} <br>`;
+		
+		//출력
+		document.getElementById('result3').style.height = '100px';
+		document.getElementById('result3').innerHTML = str;
+	}
+	
+	function calcpro() {
+		//입력한  수를 가져오기 (value - 각각의 id를 이용해서 요소를 검색하고 값을 가져온다.)
+		num1Value = document.querySelector('#num1').value;
+		num2Value = document.querySelector('#num2').value;
+		
+		//더하기
+		add = parseInt(num1Value) + parseInt(num2Value);
+		
+		//출력
+		document.querySelector('#res').value = add;
+	}
+</script>
+<style>
+div {
+	border: 1px dotted orange;
+	height: 50px;
+	padding: 10px;
+	margin: 10px;
+	font-size: 1.5em;
+}
+</style>
+</head>
+<body>
+	<pre>
+		실행 하자마자 prompt를 이용하여 입력하고, <br>
+		입력한 값을 id=result인 요소에 출력한다. <br>
+	</pre>
+<div id="result"></div>
+<br>
+<hr color="red">
+
+	<h3>버튼을 클릭하면 prompt를 이용하여 숫자를 한 개를 입력 받는다.<br>
+	입력 받은 수의 구구단을 출력한다.</h3>
+<input type="button" value="구구단 입력" onclick="gugupro()">
+<br><br>
+<div id="result2"></div>
+<br>
+<hr color="red">
+<br>
+
+<input type="button" value="확인" onclick="addpro()">
+<div id="result3"></div>
+<br>
+<hr color="red">
+ 첫 번째 수 <input id="num1"> <br>
+ 두 번째 수 <input id="num2"> <br>
+<br>
+ 결과 <input id="res"> <br>
+<br>
+<input type="button" value="확인" onclick="calcpro()">
+</body>
+</html>
